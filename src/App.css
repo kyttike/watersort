@@ -1,5 +1,6 @@
 .game-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 8rem;
+  margin-top: min(6rem, 10vh);
 }

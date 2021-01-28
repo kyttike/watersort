@@ -1,6 +1,6 @@
 .vial {
   position: relative;
-  border: 6px solid white;
+  border: 6px solid #aaa;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   cursor: pointer;
@@ -10,7 +10,7 @@
 }
 
 .vial:after {
-  border: 4px solid white;
+  border: 4px solid #aaa;
   position: absolute;
   left: 0;
   right: 0;
@@ -21,11 +21,11 @@
 }
 
 .vial:hover {
-  border-color: lightskyblue;
+  border-color: white;
 }
 
 .vial:hover:after {
-  border-color: lightskyblue;
+  border-color: white;
   border-top-color: transparent;
 }
 

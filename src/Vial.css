@@ -1,14 +1,32 @@
 .vial {
+  position: relative;
   border: 6px solid white;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   cursor: pointer;
   transition: all 0.2s;
   margin: 0 0.5rem 2rem;
+  padding-top: 1rem;
+}
+
+.vial:after {
+  border: 4px solid white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  border-top-color: transparent;
+  transition: all 0.2s;
+  content: '';
 }
 
 .vial:hover {
   border-color: lightskyblue;
+}
+
+.vial:hover:after {
+  border-color: lightskyblue;
+  border-top-color: transparent;
 }
 
 .vial--selected {

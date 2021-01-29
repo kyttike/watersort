@@ -1,11 +1,3 @@
 .game-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
   margin-top: min(6rem, 10vh);
-}
-
-.game-container--row {
-  display: flex;
 }

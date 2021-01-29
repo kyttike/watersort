@@ -1,0 +1,10 @@
+.vial-display {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.vial-display--row {
+  display: flex;
+}

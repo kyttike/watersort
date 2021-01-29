@@ -1,5 +1,5 @@
 import './Vial.css';
-import { VialState } from './App';
+import { VialState } from './types';
 
 type Props = {
   vialState: VialState;

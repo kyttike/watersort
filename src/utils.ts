@@ -1,3 +1,6 @@
+import { maxVialSize } from './consts';
+import { GameState } from './types';
+
 function shuffle(array: any[]) {
   let resultArray = [...array];
   let currentIndex = resultArray.length,
@@ -25,3 +28,24 @@ export function getRandomGamedata(colors: string[], maxVialSize: number): string
   }
   return result;
 }
+
+export const pourLiquid = (gameState: string[][], sourceIndex: number, targetIndex: number): GameState => {
+  const sourceVial = [...gameState[sourceIndex]];
+  const targetVial = [...gameState[targetIndex]];
+  console.log(sourceVial, targetVial);
+  while (true) {
+    if (targetVial.length === maxVialSize || sourceVial.length === 0) {
+      break;
+    }
+    const sourceColor = sourceVial[sourceVial.length - 1];
+    const targetColor = targetVial[targetVial.length - 1];
+    if (sourceColor !== targetColor && targetColor !== undefined) {
+      break;
+    }
+    targetVial.push(sourceVial.pop() as string);
+  }
+  let newGameState = [...gameState];
+  newGameState[sourceIndex] = sourceVial;
+  newGameState[targetIndex] = targetVial;
+  return newGameState;
+};

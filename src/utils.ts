@@ -19,20 +19,19 @@ function shuffle(array: any[]) {
   return resultArray;
 }
 
-export function getRandomGamedata(colors: string[], maxVialSize: number): string[][] {
+export function getRandomGamedata(colors: string[], maxVialSize: number = 4, extraVials: number = 2): string[][] {
   const result: string[][] = [];
   const duplicatedColors = colors.flatMap((color) => Array(maxVialSize).fill(color));
   const shuffledColors = shuffle(duplicatedColors);
   for (let i = 0; i < shuffledColors.length; i += maxVialSize) {
     result.push(shuffledColors.slice(i, i + maxVialSize));
   }
-  return result;
+  return result.concat(Array(extraVials).fill([]));
 }
 
-export const pourLiquid = (gameState: string[][], sourceIndex: number, targetIndex: number): GameState => {
+export const pourLiquid = (gameState: GameState, sourceIndex: number, targetIndex: number): GameState => {
   const sourceVial = [...gameState[sourceIndex]];
   const targetVial = [...gameState[targetIndex]];
-  console.log(sourceVial, targetVial);
   while (true) {
     if (targetVial.length === maxVialSize || sourceVial.length === 0) {
       break;
@@ -48,4 +47,18 @@ export const pourLiquid = (gameState: string[][], sourceIndex: number, targetInd
   newGameState[sourceIndex] = sourceVial;
   newGameState[targetIndex] = targetVial;
   return newGameState;
+};
+
+export const checkIsGameOver = (gameState: GameState): boolean => {
+  for (const vial of gameState) {
+    if (vial.length > 0 && vial.length < 4) return false;
+    let vialBaseColor = vial[0];
+    for (const color of vial) {
+      if (vial.length === 0) {
+        continue;
+      }
+      if (color !== vialBaseColor) return false;
+    }
+  }
+  return true;
 };

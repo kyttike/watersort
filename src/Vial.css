@@ -5,8 +5,14 @@
   border-bottom-left-radius: 10px;
   cursor: pointer;
   transition: all 0.2s;
-  margin: 0 0.5rem 2rem;
+  margin: 0 auto 2rem;
   padding-top: 1rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .vial {
+    border-width: 5px;
+  }
 }
 
 .vial:after {
@@ -35,4 +41,10 @@
 
 .vial-liquid {
   padding: 1rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .vial-liquid {
+    padding: 0.875rem;
+  }
 }

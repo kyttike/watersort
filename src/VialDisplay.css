@@ -1,5 +1,6 @@
 .vial-display {
   display: flex;
+  width: 100%;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
@@ -7,4 +8,6 @@
 
 .vial-display--row {
   display: flex;
+  width: 100%;
+  max-width: 420px;
 }
